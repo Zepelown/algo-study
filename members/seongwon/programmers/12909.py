@@ -1,17 +1,12 @@
 def solution(s):
     cnt = 0
-    for i, j in enumerate(list(s)):
-        if i == 0 and j == ')':
-            return False
-        if j == '(':
+    for c in s:
+        if c == '(':
             cnt += 1
-        elif j == ')':
+        elif c == ')':
             if cnt >= 1:
                 cnt -= 1
             else:
                 return False
 
-    if cnt != 0:
-        return False
-
-    return True
+    return cnt == 0
