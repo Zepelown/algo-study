@@ -9,7 +9,7 @@ set<int> result;
 
 bool is_prime(int n) {
     if (n < 2) return false;
-    for (int i = 2; i <= n/i; i++) {
+    for (int i=2; i<=n/i; i++) {
         if (n%i == 0) return false;
     }
     return true;
@@ -17,7 +17,7 @@ bool is_prime(int n) {
 
 void dfs(string cur) {
     if (!cur.empty()) result.insert(stoi(cur));
-    for (int i; i < s.size(); i++) {
+    for (int i=0; i < s.size(); i++) {
         if (used[i]) continue;
         used[i] = true;
         dfs(cur + s[i]);
@@ -27,7 +27,7 @@ void dfs(string cur) {
 
 int solution(string numbers) {
     s = numbers;
-    used.assign(s.size(), false); 
+    used.assign(s.size(), false);
     result.clear();
     
     dfs("");
@@ -36,5 +36,6 @@ int solution(string numbers) {
     for (int num : result) {
         if (is_prime(num)) answer ++;
     }
+
     return answer;
 }
